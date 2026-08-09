@@ -71,7 +71,7 @@ async def main() -> None:
     async with sandbox:
         # Install Gemini CLI (Node.js is already in the code-interpreter image)
         install_exec = await sandbox.commands.run(
-            "npm install -g @google/gemini-cli@latest"
+            "npm install -g @google/gemini-cli@0.54.4"
         )
         await _print_execution_logs(install_exec)
 
