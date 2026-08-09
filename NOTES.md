@@ -9,8 +9,8 @@ is legible from the repo alone, independent of any chat history.
 ### Step 0 — Environment & Pre-Flight Checks
 Confirm the testbed is ready before any trial runs.
 
-- [ ] 0.1 — OpenSandbox container setup (Docker runtime, forked repo,
-      Gemini CLI running inside sandbox) — IN PROGRESS, see detail below
+- [x] 0.1 — OpenSandbox container setup (Docker runtime, forked repo,
+      Gemini CLI running inside sandbox) — COMPLETED on 2026-08-09
 - [ ] 0.2 — Gemini CLI + backend model configuration finalized
       (model pinned: gemini-3.5-flash — done as part of 0.1 work, formal
       0.2 confirmation still pending)
@@ -78,12 +78,12 @@ Not started.
       example.com fails (exit code 6)
       commit: "Add deny-by-default egress policy, allowing only npm
       registry and Gemini API"
-- [ ] IN PROGRESS: Verify Sandbox.create() produces genuinely
-      independent, stateless containers per call (no pooling/reuse) —
-      this is what "fresh-container-per-trial" (our chosen policy)
-      actually depends on
-- [ ] Confirm clean teardown — no orphaned containers/volumes after
-      destroy, checked via `docker ps -a`
+- [x] Verify Sandbox.create() produces genuinely independent, stateless
+      containers per call (no pooling/reuse) — verified via sequential 5-run
+      marker file test script on 2026-08-09
+- [x] Confirm clean teardown — no orphaned containers/volumes after
+      destroy, checked via `docker ps -a` on 2026-08-09 (all test containers
+      cleanly removed)
 - [ ] Decide: pre-bake Gemini CLI into a custom sandbox image instead of
       installing live via npm at trial runtime? (currently installs live
       each run — fine for proof-of-concept, worth revisiting for
