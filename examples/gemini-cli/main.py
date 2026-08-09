@@ -18,6 +18,7 @@ from datetime import timedelta
 
 from opensandbox import Sandbox
 from opensandbox.config import ConnectionConfig
+from opensandbox.models import NetworkPolicy, NetworkRule
 
 
 def _required_env(name: str) -> str:
@@ -62,10 +63,21 @@ async def main() -> None:
     # Drop None values to avoid overriding defaults inside CLI
     env = {k: v for k, v in env.items() if v is not None}
 
+    # Configure egress rules: deny-by-default, allow npm and Gemini API only
+    network_policy = NetworkPolicy(
+        default_action="deny",
+        egress=[
+            NetworkRule(action="allow", target="registry.npmjs.org"),
+            NetworkRule(action="allow", target="*.npmjs.org"),
+            NetworkRule(action="allow", target="generativelanguage.googleapis.com"),
+        ],
+    )
+
     sandbox = await Sandbox.create(
         image,
         connection_config=config,
         env=env,
+        network_policy=network_policy,
     )
 
     async with sandbox:
