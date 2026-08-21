@@ -94,6 +94,7 @@ Not started.
 ## Step 0.2 Detail — Gemini CLI & Model Configuration
 
 - [x] Generated new API key from GCP project "MSc-work", linked to active billing account, and confirmed paid tier access (header trace verified standard service tier) on 2026-08-21.
+- [x] Confirmed configuration precedence order: CLI flags > env vars > system/project/user/system-defaults settings files > defaults. Our setup uses only env vars (GEMINI_MODEL, GEMINI_API_KEY), no settings files exist in the base container image, and we pass no CLI flags in our run invocations. Env vars are confirmed to govern trial behavior with no risk of silent override.
 
 ---
 
