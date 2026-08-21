@@ -91,6 +91,12 @@ Not started.
 
 ---
 
+## Step 0.2 Detail — Gemini CLI & Model Configuration
+
+- [x] Generated new API key from GCP project "MSc-work", linked to active billing account, and confirmed paid tier access (header trace verified standard service tier) on 2026-08-21.
+
+---
+
 ## Deferred Decisions
 
 ### GEMINI_CLI_TRUST_WORKSPACE
