@@ -95,6 +95,10 @@ Not started.
 
 - [x] Generated new API key from GCP project "MSc-work", linked to active billing account, and confirmed paid tier access (header trace verified standard service tier) on 2026-08-21.
 - [x] Confirmed configuration precedence order: CLI flags > env vars > system/project/user/system-defaults settings files > defaults. Our setup uses only env vars (GEMINI_MODEL, GEMINI_API_KEY), no settings files exist in the base container image, and we pass no CLI flags in our run invocations. Env vars are confirmed to govern trial behavior with no risk of silent override.
+- [x] Temperature/sampling decision: kept at API default (temperature=1.0, topP=0.95), NOT pinned to 0
+  - Rationale: SSR is a rate metric; deterministic selection (temp=0) would not reflect realistic agent behavior and would misrepresent what SSR measures
+  - Repeats per condition: 10, to produce a statistically meaningful rate per condition
+  - Flag: this decision must be explicitly stated in Chapter Three's methodology (temperature setting + repeats-per-condition + rationale) — not yet written there as of this note
 
 ---
 
