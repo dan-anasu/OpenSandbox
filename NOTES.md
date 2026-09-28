@@ -10,10 +10,11 @@ is legible from the repo alone, independent of any chat history.
 Confirm the testbed is ready before any trial runs.
 
 - [x] 0.1 — OpenSandbox container setup (Docker runtime, forked repo,
-      Gemini CLI running inside sandbox) — COMPLETED on 2026-08-09
-- [ ] 0.2 — Gemini CLI + backend model configuration finalized
-      (model pinned: gemini-3.5-flash — done as part of 0.1 work, formal
-      0.2 confirmation still pending)
+      Gemini CLI running inside sandbox, version pin, egress policy verified at
+      DNS and nftables layers, independence and clean teardown verified, pre-baked image)
+- [x] 0.2 — Gemini CLI + backend model configuration finalized (0.2a skill discovery +
+      invocation verified; 0.2b config precedence confirmed; 0.2c default temperature
+      with 10 repeats per condition decided; 0.2d credential audit and rotation done)
 - [ ] 0.3 — UnifiedSkillParser + reused SKILLJECT components load the
       real skill pool without errors
 - [ ] 0.4 — Selection-observation harness built and validated (logs
@@ -106,6 +107,11 @@ Not started.
   - Rationale: SSR is a rate metric; deterministic selection (temp=0) would not reflect realistic agent behavior and would misrepresent what SSR measures
   - Repeats per condition: 10, to produce a statistically meaningful rate per condition
   - Flag: this decision must be explicitly stated in Chapter Three's methodology (temperature setting + repeats-per-condition + rationale) — not yet written there as of this note
+- [x] 0.2d Credential audit and rotation (2026-09-28):
+  - Credential audit covered the repo working tree, all git history, ~/.sandbox.toml, scratch scripts, task logs, shell history, and agent transcripts.
+  - Result: repo, git history, and config were clean. Keys were found in the agent CLI's conversation transcripts and database (from being pasted into chat). Both were rotated and the old keys deleted in the console. The new key was verified working via an inherited environment variable.
+  - Standing rule: GEMINI_API_KEY is supplied only through the shell environment (set with `read -rs GEMINI_API_KEY; export GEMINI_API_KEY`), never pasted into agent prompts, never logged, never written to a file.
+  - Harness rule for Step 0.4: do not log raw environment or unredacted CLI error reports from inside sandboxes.
 
 ---
 
