@@ -45,7 +45,7 @@ async def main() -> None:
     gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
     image = os.getenv(
         "SANDBOX_IMAGE",
-        "sandbox-registry.cn-zhangjiakou.cr.aliyuncs.com/opensandbox/code-interpreter:v1.1.0",
+        "gemini-cli-prebaked:0.54.4",
     )
 
     config = ConnectionConfig(
@@ -81,12 +81,6 @@ async def main() -> None:
     )
 
     async with sandbox:
-        # Install Gemini CLI (Node.js is already in the code-interpreter image)
-        install_exec = await sandbox.commands.run(
-            "npm install -g @google/gemini-cli@0.54.4"
-        )
-        await _print_execution_logs(install_exec)
-
         # Use Gemini CLI to send a message
         run_exec = await sandbox.commands.run(
             'gemini "Compute 1+1=?."'
