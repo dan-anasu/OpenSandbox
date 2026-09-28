@@ -84,10 +84,13 @@ Not started.
 - [x] Confirm clean teardown — no orphaned containers/volumes after
       destroy, checked via `docker ps -a` on 2026-08-09 (all test containers
       cleanly removed)
-- [ ] Decide: pre-bake Gemini CLI into a custom sandbox image instead of
-      installing live via npm at trial runtime? (currently installs live
-      each run — fine for proof-of-concept, worth revisiting for
-      trial-volume efficiency later, not urgent now)
+- [x] Pre-bake Gemini CLI into custom sandbox image: image tag `gemini-cli-prebaked:0.54.4`,
+      local image ID `c69877517272`, built from `examples/gemini-cli/Dockerfile`, base pinned
+      by digest `sha256:133a3c1720dd52291a019740c2987e7164ea6de79e23d8198798e58950ae2e6e`
+      (tag `opensandbox/code-interpreter:v1.1.0`).
+      Measured per-trial cycle time: ~16s (previously ~45s with live npm install) for a single
+      trivial-prompt run. Note: the image is built locally and is not pushed to any registry,
+      so it must be rebuilt from the Dockerfile on any other machine.
 
 ---
 
@@ -130,7 +133,7 @@ methodology states, not be decided ad hoc mid-experiment.
 ## Config Manifest Values Confirmed So Far (for Step 0.6)
 GEMINI_MODEL=gemini-3.5-flash
 gemini-cli version=0.54.4
-SANDBOX_IMAGE=opensandbox/code-interpreter:v1.1.0
+SANDBOX_IMAGE=gemini-cli-prebaked:0.54.4
 egress mode=dns+nft
 task set version=[not yet frozen]
 skill pool version=[not yet frozen]
