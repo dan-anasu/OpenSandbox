@@ -63,12 +63,10 @@ async def main() -> None:
     # Drop None values to avoid overriding defaults inside CLI
     env = {k: v for k, v in env.items() if v is not None}
 
-    # Configure egress rules: deny-by-default, allow npm and Gemini API only
+    # Configure egress rules: deny-by-default, allow Gemini API only
     network_policy = NetworkPolicy(
         default_action="deny",
         egress=[
-            NetworkRule(action="allow", target="registry.npmjs.org"),
-            NetworkRule(action="allow", target="*.npmjs.org"),
             NetworkRule(action="allow", target="generativelanguage.googleapis.com"),
         ],
     )
