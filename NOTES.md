@@ -69,15 +69,19 @@ Not started.
       commit: "Pin @google/gemini-cli to 0.54.4 for experimental
       reproducibility"
 - [x] Configured egress restrictions: deny-by-default NetworkPolicy,
-      allow-list = registry.npmjs.org, *.npmjs.org,
-      generativelanguage.googleapis.com
+      allow-list = generativelanguage.googleapis.com only (npm rules removed on 2026-09-28
+      following pre-baking of gemini-cli into sandbox image).
       Enforcement mode confirmed as dns+nft (firewall-level, not just DNS
-      filtering — DNS-only filtering is bypassable via hardcoded-IP
-      connections)
-      Verified both directions: npm install + Gemini API succeed; curl to
-      example.com fails (exit code 6)
-      commit: "Add deny-by-default egress policy, allowing only npm
-      registry and Gemini API"
+      filtering — DNS-only filtering is bypassable via hardcoded-IP connections).
+      Egress verification on 2026-09-28:
+      - (a) Gemini API call (generativelanguage.googleapis.com) succeeded (exit code 0)
+      - (b) npm registry blocked: curl to https://registry.npmjs.org returned exit code 6 (DNS resolution blocked)
+      - (c) Arbitrary domain blocked: curl to https://example.com returned exit code 6 (DNS resolution blocked)
+      - (d1 & d2) Raw IP blocked: curl to https://1.1.1.1 and http://1.1.1.1 timed out with exit code 28
+        (first test of the nftables firewall layer independent of DNS filtering, confirming packets are dropped at packet/firewall level)
+      - Host-side control: curl to https://1.1.1.1 from the host outside any sandbox returned HTTP/2 301 (reachable),
+        confirming the sandbox timeouts were caused by the firewall and not by upstream network conditions.
+      commit: "Restrict egress allow-list to Gemini API only (npm rules obsolete after image pre-bake)"
 - [x] Verify Sandbox.create() produces genuinely independent, stateless
       containers per call (no pooling/reuse) — verified via sequential 5-run
       marker file test script on 2026-08-09
