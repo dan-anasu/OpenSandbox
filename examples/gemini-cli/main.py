@@ -42,7 +42,7 @@ async def main() -> None:
     api_key = os.getenv("SANDBOX_API_KEY")
     gemini_api_key = _required_env("GEMINI_API_KEY")
     gemini_base_url = os.getenv("GEMINI_BASE_URL")
-    gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    gemini_model = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
     image = os.getenv(
         "SANDBOX_IMAGE",
         "gemini-cli-prebaked:0.54.4",
