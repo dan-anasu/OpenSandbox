@@ -15,8 +15,8 @@ Confirm the testbed is ready before any trial runs.
 - [x] 0.2 — Gemini CLI + backend model configuration finalized (0.2a skill discovery +
       invocation verified; 0.2b config precedence confirmed; 0.2c default temperature
       with 10 repeats per condition decided; 0.2d credential audit and rotation done)
-- [ ] 0.3 — UnifiedSkillParser + reused SKILLJECT components load the
-      real skill pool without errors
+- [x] 0.3 — UnifiedSkillParser + reused SKILLJECT components load the
+      real skill pool without errors (pinned sync to ave/third_party/, manifest committed)
 - [ ] 0.4 — Selection-observation harness built and validated (logs
       which skill is invoked per task, tested on trivial case first)
       NOTE: GEMINI_CLI_TRUST_WORKSPACE bypass belongs here, not in 0.1 —
@@ -112,6 +112,24 @@ Not started.
   - Result: repo, git history, and config were clean. Keys were found in the agent CLI's conversation transcripts and database (from being pasted into chat). Both were rotated and the old keys deleted in the console. The new key was verified working via an inherited environment variable.
   - Standing rule: GEMINI_API_KEY is supplied only through the shell environment (set with `read -rs GEMINI_API_KEY; export GEMINI_API_KEY`), never pasted into agent prompts, never logged, never written to a file.
   - Harness rule for Step 0.4: do not log raw environment or unredacted CLI error reports from inside sandboxes.
+
+---
+
+## Step 0.3 Detail — Skill Pool Materialization & Parser Integration
+
+- SkillJect source: commit 6598997, https://github.com/jiaxiaojunQAQ/SkillJect.git, paper arXiv:2602.14211. No top-level LICENSE, so cite the paper, repo and commit, and ask the author about licensing before redistributing any of its data.
+- UnifiedSkillParser validated: 100/100 parse cleanly in SkillJect; 41 have directory name != frontmatter name.
+- Rule: third-party material lives only in ave/third_party/ (gitignored), is materialized by ave/scripts/sync_third_party.py from the pinned commit, and is described by the committed manifest. Never commit it. After the one-time sync, SkillJect is no longer needed.
+- Design decision: FIXED shelf of 12 skills, identical in every trial; only the target's description changes between runs. Gemini CLI's built-in skills (skill-creator, antigravity-support) are also always present, so each trial has 14 skills.
+- Provisional 12, by the frontmatter names Gemini CLI sees (source directory in brackets where different): react-best-practices, backend-migrations [backend-migrations-eis-its], sql-to-osc, global-error-handling, global-commenting [global-commenting-eis-its], code-analysis, api-compat [api-compat-1.0.0], deps-mgmt [deps-mgmt-1.0.0], testing-test-writing, managing-commits, changelog-generator, technical-decision-record.
+- Known issues before Step 0.5:
+  (a) every SkillJect instruction begins "Please use the <skill-name> skill to..." and must be stripped;
+  (b) remaining wording often mirrors the skill description, so related-tier tasks must be reworded as natural requests and recorded as a derived dataset;
+  (c) neighbor relationships were judged by an agent and need an objective measure (e.g. embedding similarity of descriptions) for the adjacent tier;
+  (d) all 12 are software-engineering skills, so the unrelated tier needs tasks from outside that domain;
+  (e) CONFIRMED: the managing-commits and changelog-generator tasks ship only instruction.md with no git repository, staged changes, or tag, so they cannot be completed as shipped; fix by building a deterministic git fixture at sandbox setup, or replace those skills;
+  (f) skill-report.json files inside skill folders are third-party scan reports and are excluded at install time (install-time filter only; the synced copy and its hashes stay intact).
+- Static scan of the 12 skills: 57 matches, none blocking (source URLs, git subprocess helpers, npm install in docs, a mock requests fixture).
 
 ---
 

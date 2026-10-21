@@ -1,0 +1,383 @@
+{
+  "source_repo_url": "https://github.com/jiaxiaojunQAQ/SkillJect.git",
+  "source_commit": "6598997b76044fa00abe0a4416064fbd2eab33ff",
+  "source_commit_prefix": "6598997",
+  "synced_at": "2026-10-21T02:11:47.166126+00:00",
+  "skills_count": 12,
+  "total_files_count": 59,
+  "skills": [
+    {
+      "source_dir": "react-best-practices",
+      "frontmatter_name": "react-best-practices",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/react-best-practices",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/react-best-practices"
+    },
+    {
+      "source_dir": "backend-migrations-eis-its",
+      "frontmatter_name": "backend-migrations",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/backend-migrations",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/backend-migrations"
+    },
+    {
+      "source_dir": "sql-to-osc",
+      "frontmatter_name": "sql-to-osc",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/sql-to-osc",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/sql-to-osc"
+    },
+    {
+      "source_dir": "global-error-handling",
+      "frontmatter_name": "global-error-handling",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/global-error-handling",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/global-error-handling"
+    },
+    {
+      "source_dir": "global-commenting-eis-its",
+      "frontmatter_name": "global-commenting",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/global-commenting",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/global-commenting"
+    },
+    {
+      "source_dir": "code-analysis",
+      "frontmatter_name": "code-analysis",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/code-analysis",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/code-analysis"
+    },
+    {
+      "source_dir": "api-compat-1.0.0",
+      "frontmatter_name": "api-compat",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/api-compat",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/api-compat"
+    },
+    {
+      "source_dir": "deps-mgmt-1.0.0",
+      "frontmatter_name": "deps-mgmt",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/deps-mgmt",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/deps-mgmt"
+    },
+    {
+      "source_dir": "testing-test-writing",
+      "frontmatter_name": "testing-test-writing",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/testing-test-writing",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/testing-test-writing"
+    },
+    {
+      "source_dir": "managing-commits",
+      "frontmatter_name": "managing-commits",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/managing-commits",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/managing-commits"
+    },
+    {
+      "source_dir": "changelog-generator",
+      "frontmatter_name": "changelog-generator",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/changelog-generator",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/changelog-generator"
+    },
+    {
+      "source_dir": "technical-decision-record",
+      "frontmatter_name": "technical-decision-record",
+      "skills_pool_path": "ave/third_party/skillject/skills_pool/technical-decision-record",
+      "tasks_src_path": "ave/third_party/skillject/tasks_src/technical-decision-record"
+    }
+  ],
+  "files": [
+    {
+      "generated": true,
+      "destination_path": "ave/third_party/skillject/parser/__init__.py",
+      "sha256": "ac01542938cccf27fd8384047df599db6550ded2c7d7a1ba1f0a8281a4475a64"
+    },
+    {
+      "source_path": "src/domain/generation/interfaces/i_skill_parser.py",
+      "destination_path": "ave/third_party/skillject/parser/i_skill_parser.py",
+      "sha256": "95c1c56029619eb92ee377c0c1f77de9aee22463a5fe8387ebaecd9f26a5cd0b",
+      "modified": true,
+      "transform": "header comment + import rewrite"
+    },
+    {
+      "source_path": "src/domain/generation/services/parsers/skill_parser.py",
+      "destination_path": "ave/third_party/skillject/parser/skill_parser.py",
+      "sha256": "2fa662a9de331464f337eb25df5c0e2354671f8eadd738b28a9ddd902f9de13c",
+      "modified": true,
+      "transform": "header comment + import rewrite"
+    },
+    {
+      "source_path": "data/skills_sample/api-compat-1.0.0/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/api-compat/SKILL.md",
+      "sha256": "15406a55a6d4b66e4e9e5c3727b3e3b2afddba7371271405c5787f6017951232"
+    },
+    {
+      "source_path": "data/skills_sample/api-compat-1.0.0/_meta.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/api-compat/_meta.json",
+      "sha256": "5d8c255d68946a4f321092672cdd40636160b226a1e778ab8cdaa96955e2140b"
+    },
+    {
+      "source_path": "data/skills_sample/backend-migrations-eis-its/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/backend-migrations/SKILL.md",
+      "sha256": "ddb5c74fbe75aaa073f8bf461d56dfc2e0a53b5583b8b357d49b447739becbb0"
+    },
+    {
+      "source_path": "data/skills_sample/backend-migrations-eis-its/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/backend-migrations/skill-report.json",
+      "sha256": "c8bc96acf3a09db8ffaffa38a7b9275bf18ca66c139ff4ff45bd6333e056e6f0"
+    },
+    {
+      "source_path": "data/skills_sample/changelog-generator/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/changelog-generator/SKILL.md",
+      "sha256": "0fdde1fc7ed062a82fd7ba98057f5d471c5d1905bfe2ddc4eeb213450cb00c18"
+    },
+    {
+      "source_path": "data/skills_sample/changelog-generator/audit_output.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/changelog-generator/audit_output.json",
+      "sha256": "e7dc848dfe06ff11363f61795ea346637cb02bafe0491780ada5256a055b6d9c"
+    },
+    {
+      "source_path": "data/skills_sample/changelog-generator/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/changelog-generator/skill-report.json",
+      "sha256": "ea22e8c5ce83fa3eb50eaed13415b6a3f89341d1ab2f5af0c554c1cc1f1cf360"
+    },
+    {
+      "source_path": "data/skills_sample/code-analysis/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/code-analysis/SKILL.md",
+      "sha256": "4e0db6487278f82a99391a0977664368556c98ee92e23d76ac02ee86b1d26dab"
+    },
+    {
+      "source_path": "data/skills_sample/code-analysis/analyze.py",
+      "destination_path": "ave/third_party/skillject/skills_pool/code-analysis/analyze.py",
+      "sha256": "a4834da3be75c36f037a96721c8674fc6df65bbdadd49b5de8a38045ba6d8079"
+    },
+    {
+      "source_path": "data/skills_sample/code-analysis/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/code-analysis/skill-report.json",
+      "sha256": "d2394d0a4975cee179a7bfd35694b730dbd56fe2124ca432401cacaa87159b1d"
+    },
+    {
+      "source_path": "data/skills_sample/deps-mgmt-1.0.0/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/deps-mgmt/SKILL.md",
+      "sha256": "73f83c57124d0a4f4a75b7f11578ba860f0eac253091c1f61625ead72a4e13bc"
+    },
+    {
+      "source_path": "data/skills_sample/deps-mgmt-1.0.0/_meta.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/deps-mgmt/_meta.json",
+      "sha256": "56294974aa8259785b9532cc196507c6c1d418af58faa5e50f420ae3cd6424ed"
+    },
+    {
+      "source_path": "data/skills_sample/global-commenting-eis-its/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/global-commenting/SKILL.md",
+      "sha256": "1e6eefc5d43497cd13528ff6bb48493b99ebd1e9dde3ec81871678e9047ec691"
+    },
+    {
+      "source_path": "data/skills_sample/global-commenting-eis-its/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/global-commenting/skill-report.json",
+      "sha256": "7a95cc2d1b7833bbcf940f16ef1f179648490f40637f93c10b1cba8db11a7081"
+    },
+    {
+      "source_path": "data/skills_sample/global-error-handling/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/global-error-handling/SKILL.md",
+      "sha256": "e61e0c4c2725839f95681a68c696992d940b19ee2f1825e232de80dc7ca7ca5a"
+    },
+    {
+      "source_path": "data/skills_sample/global-error-handling/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/global-error-handling/skill-report.json",
+      "sha256": "5d5013783974a6b105af94ac42c546556ffe68af3d7a5edc6dcaa0855016a837"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/SKILL.md",
+      "sha256": "72819d7eb394ee5ff504e3d4d49d0a0eed99f0d4bbfb17734af33c4409730b1a"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/assets/commit-templates.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/assets/commit-templates.json",
+      "sha256": "2a1bbd7c156dbbbf972bb1e2feaf5519fbf8d470059cc4edaf75e4b6ab4c9127"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/references/commit-patterns.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/references/commit-patterns.md",
+      "sha256": "21691643eaf32cab4370b92554902fccd9d1ff841fdf3250f8a10b028e46e40d"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/references/conventional-commits.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/references/conventional-commits.md",
+      "sha256": "27a741c86242f092b1921e4e76d6f0e331c62359c93072487541429dc8ad8f10"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/scripts/commit-analyzer.py",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/scripts/commit-analyzer.py",
+      "sha256": "b78520235e03c643b19bbff4e568524ef819777fad6f4264bd35ffcaa1c94d14"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/scripts/conventional-commits.py",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/scripts/conventional-commits.py",
+      "sha256": "a1191ef7a494db64bc0dbf5627fcdbdd4013176202ebde8bd95cc6bf52732b94"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/scripts/group-files.py",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/scripts/group-files.py",
+      "sha256": "11f7855bafef4a2db091b9847d95ed6e673c924d96c6b8af4cdffac52b737c5d"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/scripts/init-environment.py",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/scripts/init-environment.py",
+      "sha256": "b6cf4e8db612971fa084486aa5b08ba2b20294a580e0d557b69167d860c8605b"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/scripts/issue-tracker.py",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/scripts/issue-tracker.py",
+      "sha256": "86827609beac843c390c50a9ee7834f4bb0e89f0a868a7984f1e7afcd1881b47"
+    },
+    {
+      "source_path": "data/skills_sample/managing-commits/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/managing-commits/skill-report.json",
+      "sha256": "7e3596cca92f4ad24e5c49b8dba8156621a3f9a458526546607520e5ca4cb3b8"
+    },
+    {
+      "source_path": "data/skills_sample/react-best-practices/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/react-best-practices/SKILL.md",
+      "sha256": "1bb822db35efc806b5317894c4bde022c1be9000e19743421edbcc95308d652c"
+    },
+    {
+      "source_path": "data/skills_sample/react-best-practices/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/react-best-practices/skill-report.json",
+      "sha256": "bb826480ea09b3dc89267185bab4060c5bd1fb1bbc92dcae5f37f808670df11f"
+    },
+    {
+      "source_path": "data/skills_sample/sql-to-osc/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/sql-to-osc/SKILL.md",
+      "sha256": "4db4bbdba0b5a15fd0dbdef0fbf15c625057eebab371bfc7312013b3f3e17ee4"
+    },
+    {
+      "source_path": "data/skills_sample/sql-to-osc/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/sql-to-osc/skill-report.json",
+      "sha256": "fd7425d9c39a5977f2512e859641e9703d770f279f484bc285f31b3dcd96900a"
+    },
+    {
+      "source_path": "data/skills_sample/technical-decision-record/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/technical-decision-record/SKILL.md",
+      "sha256": "f6a6c3173a44f2f97e0e1c4823f833b1473dd943547e66100ab45862511066d5"
+    },
+    {
+      "source_path": "data/skills_sample/technical-decision-record/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/technical-decision-record/skill-report.json",
+      "sha256": "cff5d3ff3f78d7a6eb1a371c218d3151c381e8d5619036bd6be58b86764fc4d4"
+    },
+    {
+      "source_path": "data/skills_sample/testing-test-writing/SKILL.md",
+      "destination_path": "ave/third_party/skillject/skills_pool/testing-test-writing/SKILL.md",
+      "sha256": "811abdd81c4e7abb0e2547d60cde0c27775470e4f26ea10f0325d4afd290c8c7"
+    },
+    {
+      "source_path": "data/skills_sample/testing-test-writing/skill-report.json",
+      "destination_path": "ave/third_party/skillject/skills_pool/testing-test-writing/skill-report.json",
+      "sha256": "f4603006bc0348e604c5305c3ef0ae9c17f88c9518f8699a944d869b867efb14"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/api-compat-1.0.0/api_changes.txt",
+      "destination_path": "ave/third_party/skillject/tasks_src/api-compat/api_changes.txt",
+      "sha256": "645cd4b2fc37e300e9e94c92f310a3bde08f6c2d247be10bafba27adce049407"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/api-compat-1.0.0/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/api-compat/instruction.md",
+      "sha256": "68f1b5af89f58c73db4ce13079b5a3c080f44d48b288711eef907a58b112cf67"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/backend-migrations-eis-its/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/backend-migrations/instruction.md",
+      "sha256": "cfa67abfb69986bc5a38d72aa7c329e993e00d7b172f50bb703564d2f59e9b1d"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/backend-migrations-eis-its/schema_changes.sql",
+      "destination_path": "ave/third_party/skillject/tasks_src/backend-migrations/schema_changes.sql",
+      "sha256": "d4b079b8b639c10dfa4aef5ea79b4dc86a09eb2fc86a9d35235bf359eae53bb4"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/changelog-generator/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/changelog-generator/instruction.md",
+      "sha256": "8d9fddabc4ddf2f3143cfaa6120f6413abd8f20a2dc0ac478d5b4a9c0073ea7b"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/code-analysis/code.py",
+      "destination_path": "ave/third_party/skillject/tasks_src/code-analysis/code.py",
+      "sha256": "934d0e45cb85fbed9ad418b6b6a9978612a9a60a40991c0324fe4f03eaaba79f"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/code-analysis/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/code-analysis/instruction.md",
+      "sha256": "aad0907cf6c2f3a8e3dc7867d7a1db925b93e17223b9db90df87718034179759"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/deps-mgmt-1.0.0/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/deps-mgmt/instruction.md",
+      "sha256": "c28117b8ee1435281900e07ad1b55bcd4637860cd05aed1a15989254af8fbd0b"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/deps-mgmt-1.0.0/requirements.txt",
+      "destination_path": "ave/third_party/skillject/tasks_src/deps-mgmt/requirements.txt",
+      "sha256": "c691e7701563dc06c03a5f758f0637df5aa20c9a2305bb666d5739b6be543827"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/global-commenting-eis-its/code.py",
+      "destination_path": "ave/third_party/skillject/tasks_src/global-commenting/code.py",
+      "sha256": "4e55f566adcee3abb008fa01062f9e2d38cf3483a8d01ed0b9a98a916b4edfd4"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/global-commenting-eis-its/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/global-commenting/instruction.md",
+      "sha256": "0a1a41f89fb3d7353291bf22a3b385b46f800dc8c96763e445824426f2b6cafc"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/global-error-handling/api_controller.py",
+      "destination_path": "ave/third_party/skillject/tasks_src/global-error-handling/api_controller.py",
+      "sha256": "9d719bffaf56cdfee2ab749347e1876796b63febd6b1f1aec701f75225747066"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/global-error-handling/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/global-error-handling/instruction.md",
+      "sha256": "46ff8cdc75db3a160e0f1f5166576fe39890ddf9190c288b89abc0d8a83318c9"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/managing-commits/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/managing-commits/instruction.md",
+      "sha256": "e6d759f30638b4dd09e52a40df6b520d87b21499074c8a9f5073ea9fdb2589ba"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/react-best-practices/UserDashboard.tsx",
+      "destination_path": "ave/third_party/skillject/tasks_src/react-best-practices/UserDashboard.tsx",
+      "sha256": "da4d208b5bee9ecedd151b9f44c96431de95e1968d934a324792dc636a32dc90"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/react-best-practices/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/react-best-practices/instruction.md",
+      "sha256": "f0f41a79bbb8b19989428f02be65bc5ac02a3a139d45a291546c78d18d407faa"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/sql-to-osc/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/sql-to-osc/instruction.md",
+      "sha256": "0cedce47896636b379f55d560c8df39574e069a6ee99f6efbc08672928e89842"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/sql-to-osc/migration.sql",
+      "destination_path": "ave/third_party/skillject/tasks_src/sql-to-osc/migration.sql",
+      "sha256": "0f6cde2b15db3450982c7d4bf188b4a56598abf2f683993103af65a1e1a1b816"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/technical-decision-record/decision_context.txt",
+      "destination_path": "ave/third_party/skillject/tasks_src/technical-decision-record/decision_context.txt",
+      "sha256": "2648fae83b6bd86cc43f6f600a5e439bbd1a653d00abd0cb42b3ce83c800e7d9"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/technical-decision-record/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/technical-decision-record/instruction.md",
+      "sha256": "a3da8d7ee8b378c6e2b2ad920bdc5b52c824ad138552eb3549a14c482676e68d"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/testing-test-writing/UserController.php",
+      "destination_path": "ave/third_party/skillject/tasks_src/testing-test-writing/UserController.php",
+      "sha256": "45194e7d10112b7345fc36e8d2cb3f418086e0ff0d394d412136caf6e157be64"
+    },
+    {
+      "source_path": "data/instruction/skills_sample/testing-test-writing/instruction.md",
+      "destination_path": "ave/third_party/skillject/tasks_src/testing-test-writing/instruction.md",
+      "sha256": "ce44cdaaffef5794852c8864f4aa991a9e0747da068f282c637f2c2278e79175"
+    }
+  ]
+}
