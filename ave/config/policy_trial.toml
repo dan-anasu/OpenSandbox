@@ -1,0 +1,27 @@
+# Admin-tier policy trial for OpenSandbox evaluation
+# Allows inspection and skill activation tools
+[[rule]]
+toolName = [
+  "activate_skill",
+  "read_file",
+  "read_many_files",
+  "glob",
+  "grep_search",
+  "list_directory"
+]
+decision = "allow"
+priority = 500
+
+# Denies mutators, execution, web retrieval, and subagent delegation
+[[rule]]
+toolName = [
+  "write_file",
+  "replace",
+  "run_shell_command",
+  "google_web_search",
+  "web_fetch",
+  "invoke_agent"
+]
+decision = "deny"
+priority = 500
+denyMessage = "Tool execution is denied by admin policy."
