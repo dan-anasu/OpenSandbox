@@ -15,7 +15,7 @@ Confirm the testbed is ready before any trial runs.
 - [x] 0.2 — Gemini CLI + backend model configuration finalized (0.2a skill discovery +
       invocation verified; 0.2b config precedence confirmed; 0.2c default temperature
       with 10 repeats per condition decided; 0.2d credential audit and rotation done)
-- [x] 0.3 — UnifiedSkillParser + reused SKILLJECT components load the
+- [ ] 0.3 — UnifiedSkillParser + reused SKILLJECT components load the
       real skill pool without errors (pinned sync to ave/third_party/, manifest committed)
 - [ ] 0.4 — Selection-observation harness built and validated (logs
       which skill is invoked per task, tested on trivial case first)
@@ -64,7 +64,7 @@ Not started.
       localhost)
 - [x] Ran examples/gemini-cli/ vanilla example successfully inside sandbox
 - [x] Chose backend model: gemini-3.5-flash (Stable, agentic/coding-tuned,
-      not Preview — avoids mid-study model drift risk)
+      not Preview — avoids mid-study model drift risk) [superseded 2026-10-22; see 'Selection-trial design decisions']
 - [x] Pinned @google/gemini-cli to exact version 0.54.4 in main.py
       (was floating on @latest)
       commit: "Pin @google/gemini-cli to 0.54.4 for experimental
@@ -103,7 +103,7 @@ Not started.
 
 - [x] Generated new API key from GCP project "MSc-work", linked to active billing account, and confirmed paid tier access (header trace verified standard service tier) on 2026-08-21.
 - [x] Confirmed configuration precedence order: CLI flags > env vars > system/project/user/system-defaults settings files > defaults. Our setup uses only env vars (GEMINI_MODEL, GEMINI_API_KEY), no settings files exist in the base container image, and we pass no CLI flags in our run invocations. Env vars are confirmed to govern trial behavior with no risk of silent override.
-- [x] Temperature/sampling decision: kept at API default (temperature=1.0, topP=0.95), NOT pinned to 0
+- [x] Temperature/sampling decision: kept at API default (temperature=1.0, topP=0.95), NOT pinned to 0 [superseded 2026-10-22; see 'Selection-trial design decisions']
   - Rationale: SSR is a rate metric; deterministic selection (temp=0) would not reflect realistic agent behavior and would misrepresent what SSR measures
   - Repeats per condition: 10, to produce a statistically meaningful rate per condition
   - Flag: this decision must be explicitly stated in Chapter Three's methodology (temperature setting + repeats-per-condition + rationale) — not yet written there as of this note
@@ -133,6 +133,20 @@ Not started.
 
 ---
 
+## Selection-trial design decisions (2026-10-22)
+
+- Model: backend model is gemini-3.6-flash (GA). gemini-3.5-flash is deprecated and auto-redirected: a direct API call requesting gemini-3.5-flash returned modelVersion gemini-3.6-flash on 2026-10-22, and all earlier saved streams show init=3.5 (requested) with stats.models=3.6 (served). No experimental data had been collected before this. Manifest value updated to GEMINI_MODEL=gemini-3.6-flash. Risk: Google retires models quickly (3.5 was just redirected), so log the requested model per trial, run a canary (a no-tool prompt that completes and returns stats.models) at the start and end of each batch, check Google's deprecation page before each session, and keep the collection window short.
+- Sampling: gemini-3.6-flash accepted generationConfig temperature 0 (HTTP 200); whether it is honored is unverified. A third-party changelog summary says temperature/top_p/top_k are deprecated for this model; confirm on Google's page. The earlier "default temperature 1.0, topP 0.95" figures are unverified. Decision stands: default sampling, 10 repeats per condition; the justification is that sampling may not be controllable.
+- Definition of "selected": the first activate_skill tool_use event in the stream-json output, taking parameters.name; no such event by the end of the run means no skill selected. Trials end at the first activation (plus a 2-second grace window to capture same-turn activations; to be tested), at the final result event, or at a timeout.
+- Headless behavior: Gemini CLI 0.54.4 does not register activate_skill by default in headless mode; we enable it via an admin policy (ave/config/policy_trial.toml). Approval mode stays default (no auto_edit, no yolo). The policy allows activate_skill, read_file, read_many_files, glob, grep_search, list_directory and denies write_file, replace, run_shell_command, google_web_search, web_fetch, invoke_agent. Evidence: the model's tool list with vs without the policy, and attempts to call write_file, replace and run_shell_command were rejected with tool_not_registered. google_web_search tunnels through the allowed model endpoint, so it must be denied by policy. The CLI runs as root inside the sandbox, so file mode 444 does not protect the policy file; protection is the denied write/shell tools and the CLI's workspace boundary.
+- Containment incident: two containers were once started directly with `docker run`, outside the SDK and the egress policy, and were removed. Rule: sandboxes are created only through the OpenSandbox SDK with the network policy applied, wrapped in try/finally; compare container, volume and network counts at the start and end of every batch.
+- Evidence standard: chat-typed agent reports have contained reconstructed text (e.g. hashes). Only captured stdout and saved files count; the 12 instruction hashes in ave/scratch/ground_truth_12.md were checked against the manifest (12 of 12 match).
+- Timing: container creation to teardown ranged from 17 s to 37 s per trial across sessions (selection latency 5 s to 24 s); log timestamps per trial and re-estimate from measured data. A full-completion run with denied-tool retries did not finish in 120 s, so canaries use a no-tool prompt. For token counts, early-stopped trials emit no result event.
+- Open items before Step 0.5: managing-commits and changelog-generator tasks ship without a git repository or tag; reword tasks so they do not mirror skill descriptions; objective measure of skill-neighbor similarity (e.g. description embeddings); unrelated-tier tasks from outside software engineering; sql-to-osc's description contains a Chinese trigger phrase (language confounder to weigh).
+- Harness requirements for Step 0.4: write one JSON event per line, with a newline after each event; log per trial the trial id, sandbox id, requested model, target skill, task id, tier, repeat index, start and stop timestamps, stop reason, every activate_skill event (name and timestamp; the first is the primary selection), and the sha256 of the saved stream file. At the start of every batch run two canaries in fresh SDK sandboxes: a containment canary (curl https://example.com must fail with exit 6 and curl https://1.1.1.1 must fail with exit 28, otherwise abort the batch) and a model canary (a no-tool prompt run to completion, recording stats.models). Record container, volume, and network counts at batch start and end. Create sandboxes only through the SDK with try/finally teardown. Stop the local OpenSandbox server when no batch is running.
+
+---
+
 ## Deferred Decisions
 
 ### GEMINI_CLI_TRUST_WORKSPACE
@@ -159,7 +173,7 @@ methodology states, not be decided ad hoc mid-experiment.
 ---
 
 ## Config Manifest Values Confirmed So Far (for Step 0.6)
-GEMINI_MODEL=gemini-3.5-flash
+GEMINI_MODEL=gemini-3.6-flash
 gemini-cli version=0.54.4
 SANDBOX_IMAGE=gemini-cli-prebaked:0.54.4
 egress mode=dns+nft
